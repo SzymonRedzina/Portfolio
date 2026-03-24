@@ -1,0 +1,323 @@
+/* certificates.css */
+/* ==================================================
+   Certificates Section
+================================================== */
+
+.certificates-section {
+  min-height: auto;
+  padding: 2rem 5vw;
+  background: #0a0a0f;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificates-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #b0b0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.8rem;
+}
+
+.header-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #38b763, #4ade80);
+  margin: 0 auto 1rem;
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  color: #b0b0c0;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Certificates Grid */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Certificate Card */
+.certificate-card {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(50, 50, 70, 0.6);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(74, 222, 128, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon Section */
+.certificate-icon-wrapper {
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(56, 183, 99, 0.1), rgba(74, 222, 128, 0.05));
+  border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.certificate-icon {
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .certificate-icon {
+  transform: scale(1.1);
+}
+
+/* Content */
+.certificate-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.certificate-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.issuer, .date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #b0b0c0;
+}
+
+.meta-icon {
+  font-size: 0.8rem;
+  color: #4ade80;
+}
+
+.certificate-description {
+  font-size: 0.9rem;
+  color: #b0b0c0;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.certificate-footer {
+  text-align: right;
+  margin-top: auto;
+}
+
+.certificate-badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4ade80;
+  transition: all 0.2s ease;
+}
+
+.certificate-card:hover .certificate-badge {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+/* Decorative Line Effect */
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38b763, #4ade80);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.certificate-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==================================================
+   Responsiveness
+================================================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .certificates-section {
+    padding: 1.5rem 5vw;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.2rem;
+  }
+  
+  .certificate-content h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablets Portrait */
+@media (max-width: 768px) {
+  .certificates-section {
+    padding: 1.5rem 4vw;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .certificate-icon-wrapper {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+  
+  .certificate-icon {
+    font-size: 2.5rem;
+  }
+  
+  .certificate-content {
+    padding: 1.2rem;
+  }
+  
+  .certificate-content h3 {
+    font-size: 1rem;
+  }
+  
+  .certificate-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .certificates-section {
+    padding: 1rem 4vw;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .certificate-icon-wrapper {
+    padding: 1.2rem 1rem 0.8rem 1rem;
+  }
+  
+  .certificate-icon {
+    font-size: 2rem;
+  }
+  
+  .certificate-content {
+    padding: 1rem;
+  }
+  
+  .certificate-content h3 {
+    font-size: 0.95rem;
+  }
+  
+  .issuer, .date {
+    font-size: 0.75rem;
+  }
+  
+  .certificate-description {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .certificate-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.8rem;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+  .certificates-container {
+    max-width: 1600px;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 1.8rem;
+  }
+  
+  .certificate-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .certificate-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .certificate-card,
+  .certificate-icon,
+  .certificate-badge,
+  .certificate-card::before {
+    transition: none;
+    animation: none;
+  }
+  
+  .certificate-card:hover {
+    transform: none;
+  }
+  
+  .certificate-card:hover .certificate-icon {
+    transform: none;
+  }
+}

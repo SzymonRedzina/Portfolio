@@ -1,0 +1,644 @@
+/* projects.css */
+/* ==================================================
+   Projects Section
+================================================== */
+
+.projects-section {
+  min-height: 100vh;
+  padding: 2rem 5vw;
+  background: #0a0a0f;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Nagłówek sekcji */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #b0b0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.8rem;
+}
+
+.header-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #38b763, #4ade80);
+  margin: 0 auto 1rem;
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  color: #b0b0c0;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   Grid projektów - układ 8x8
+================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, auto);
+  gap: 1.2rem;
+}
+
+/* Definiowanie pozycji dla każdego projektu */
+.project-1 { 
+  grid-area: 1 / 1 / 3 / 5; 
+}
+
+.project-2 { 
+  grid-area: 1 / 5 / 3 / 9; 
+}
+
+.project-3 { 
+  grid-area: 3 / 1 / 5 / 4; 
+}
+
+.project-4 { 
+  grid-area: 3 / 4 / 5 / 6; 
+}
+
+.project-5 { 
+  grid-area: 3 / 6 / 5 / 9; 
+}
+
+.project-6 { 
+  grid-area: 5 / 1 / 7 / 9; 
+}
+
+/* Kafelek projektu */
+.project-card {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(50, 50, 70, 0.6);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(74, 222, 128, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Obrazek projektu */
+.project-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.view-details {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #38b763, #4ade80);
+  color: #000;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .view-details {
+  transform: translateY(0);
+}
+
+/* Treść projektu */
+.project-content {
+  padding: 1.2rem;
+}
+
+.project-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+
+.project-domain {
+  font-size: 0.85rem;
+  color: #4ade80;
+  margin-bottom: 0.8rem;
+  font-family: monospace;
+}
+
+.project-description {
+  font-size: 0.85rem;
+  color: #b0b0c0;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  padding: 0.2rem 0.6rem;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  color: #b0b0c0;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+}
+
+/* ==================================================
+   Modal na całą stronę
+================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-container {
+  width: 95vw;
+  height: 90vh;
+  background: rgba(10, 10, 15, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-content {
+  display: flex;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Galeria w modalu */
+.modal-gallery {
+  flex: 1.5;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.gallery-main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.gallery-main img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gallery-nav:hover {
+  background: rgba(74, 222, 128, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-nav.prev {
+  left: 1rem;
+}
+
+.gallery-nav.next {
+  right: 1rem;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: #4ade80;
+}
+
+/* Informacje w modalu */
+.modal-info {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.modal-info h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #b0b0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-domain {
+  font-size: 1rem;
+  color: #4ade80;
+  margin-bottom: 1rem;
+  font-family: monospace;
+}
+
+.modal-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-description {
+  margin-bottom: 2rem;
+}
+
+.modal-description h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+}
+
+.modal-description p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b0b0c0;
+}
+
+.modal-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.modal-link.github {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.modal-link.github:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.modal-link.live {
+  background: linear-gradient(90deg, #38b763, #4ade80);
+  color: #000;
+}
+
+.modal-link.live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(56, 183, 99, 0.4);
+}
+
+/* Dodaj do pliku projects.css na końcu, przed responsywnością */
+
+/* ==================================================
+   Biggest Project Badge
+================================================== */
+
+.biggest-project {
+  position: relative;
+  
+}
+
+.biggest-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 5;
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+  animation: pulse 2s infinite;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+  }
+}
+
+/* Responsywność dla badge'a */
+@media (max-width: 768px) {
+  .biggest-badge {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.6rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .biggest-badge {
+    top: 0.3rem;
+    right: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.55rem;
+  }
+}
+/* ==================================================
+   Responsywność
+================================================== */
+
+/* Tablety */
+@media (max-width: 1024px) {
+  .projects-section {
+    padding: 1.5rem 5vw;
+  }
+  
+  .modal-content {
+    flex-direction: column;
+  }
+  
+  .modal-gallery {
+    flex: 1;
+    min-height: 300px;
+  }
+  
+  .modal-info {
+    flex: 1;
+  }
+}
+
+/* Tablety pionowo */
+@media (max-width: 768px) {
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .project-card {
+    width: 100%;
+  }
+  
+  .project-1,
+  .project-2,
+  .project-3,
+  .project-4,
+  .project-5,
+  .project-6 {
+    grid-area: auto;
+  }
+  
+  .modal-container {
+    width: 98vw;
+    height: 95vh;
+  }
+  
+  .modal-info {
+    padding: 1.5rem;
+  }
+  
+  .modal-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-links {
+    flex-direction: column;
+  }
+  
+  .thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+}
+
+/* Telefony */
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 1rem 4vw;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .project-content {
+    padding: 1rem;
+  }
+  
+  .project-content h3 {
+    font-size: 1rem;
+  }
+  
+  .modal-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .modal-info {
+    padding: 1rem;
+  }
+  
+  .modal-info h2 {
+    font-size: 1.3rem;
+  }
+  
+  .gallery-nav {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .thumbnail {
+    width: 50px;
+    height: 40px;
+  }
+}
+
+/* Redukcja animacji */
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-image img,
+  .project-overlay,
+  .view-details,
+  .modal-overlay,
+  .modal-container {
+    animation: none;
+    transition: none;
+  }
+  
+  .project-card:hover {
+    transform: none;
+  }
+}
